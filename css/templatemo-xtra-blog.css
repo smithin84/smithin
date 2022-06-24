@@ -67,10 +67,10 @@ hr {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('https://images.rawpixel.com/image_social_landscape/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvLWEwMTAtbWFya3Vzcy0wNDc1LmpwZw.jpg?s=ObVCA7WtJZpvjXlQj16VqLLlBX92kiffsgOB_TP27P4');
+    background-image: url('MyImg.jpeg');
 }
 
-.tm-site-logo i { color: #0CC; }
+/*.tm-site-logo i { color: #0CC; }*/
 
 .tm-main {
     margin-left: 400px;
