@@ -16,15 +16,7 @@
 
     -->
 
-    <style>
-
-        .GeeksForGeeks {
-            
-            position: absolute;
-            height: 100%;
-            width: 100%;
-        }
-    </style>
+   
 
 </head>
 <body>
@@ -78,10 +70,38 @@
             <div class="row tm-row tm-mb-40">
                 <div class="col-12">
                     <div class="mb-4">
-                        <h2 class="pt-2 tm-mb-40 tm-color-primary tm-post-title">Details...</h2>
+                        <h2 class="pt-2 tm-mb-40 tm-color-primary tm-post-title">Microsoft Graph API</h2>
                         <hr class="tm-hr-primary tm-mb-55">
-                        <div id="LoadBlog" > Loading... </div>
+                        <img src="https://docs.microsoft.com/en-us/graph/images/microsoft-graph.png" alt="Image" class="img-fluid">
+                        <div id="LoadBlog">
+                            <p class="tm-pt-30">
+                                Microsoft graph API provides a single endpoint to access the information from Microsoft office 365 services such as Office 365,Teams,Sharepoint etc.
+                                The magical url of Graph API https://graph.microsoft.com helps us to connects with different users,resource and there relation.
+                            </p>
+                            <h5><b> Microsoft Graph SDK</b></h5>
+                            <p class="">
+                                Graph API can integerate with any programming languages.There are some ready made SDK's are availbe. This can be easly integerate with our applications.
+                            </p>
+                            <h5><b>How to authenticate Microsoft Graph</b></h5>
+                            <div style="padding-left:3em;">
+                                <ul>
+                                    <li>
+                                        <p>Need to register your app first</p>
 
+                                    </li>
+                                    <li>
+                                        <p>Get authentication tokens for a user</p>
+
+                                    </li>
+                                    <li>
+                                        <p>Use this tokens for API calls</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <h5><b> Example:</b></h5>
+                            <p>Coming soon...</p>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -91,11 +111,8 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/templatemo-script.js"></script>
     <script>
-      
-        $(document).ready(function () {
-            /* document.getElementById("LoadBlog").innerHTML = '<div class="GeeksForGeeks"><object type="text/html" data="bloggraphapi.html" ></object></div>';*/
-            $('#LoadBlog').load("bloggraphapi.html");
-        });
+
+       
     </script>
 </body>
 </html>
