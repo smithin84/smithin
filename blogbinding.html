@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smithin</title>
+    <link rel="stylesheet" href="fontawesome/css/all.min.css"> <!-- https://fontawesome.com/ -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> <!-- https://fonts.google.com/ -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/templatemo-xtra-blog.css" rel="stylesheet">
+    <!--
+
+    TemplateMo 553 Xtra Blog
+
+    https://templatemo.com/tm-553-xtra-blog
+
+    -->
+
+   
+
+</head>
+<body>
+    <header class="tm-header" id="tm-header">
+        <div class="tm-header-wrapper">
+            <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="tm-site-header">
+                <div class="mb-3 mx-auto tm-site-logo"><i class=""></i></div>
+                <h1 class="text-center">Smithin K Vijayan</h1>
+            </div>
+            <nav class="tm-nav" id="tm-nav">
+                <ul>
+                    <li class="tm-nav-item active">
+                        <a href="index.html" class="tm-nav-link">
+                            <i class="fas fa-home"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li class="tm-nav-item">
+                        <a href="about.html" class="tm-nav-link">
+                            <i class="fas fa-pen"></i>
+                            About Me
+                        </a>
+                    </li>
+                    <li class="tm-nav-item">
+                        <a href="contact.html" class="tm-nav-link">
+                            <i class="far fa-comments"></i>
+                            Contact Us
+                        </a>
+                    </li>
+                    <!--style="margin-left:15px;"-->
+                </ul>
+                <div style="margin-left:15px;">
+                    <a href="https://in.linkedin.com/in/smithin-k-vijayan-357a3b1b" class="tm-social-link">
+                        <i class="fab fa-linkedin tm-social-icon"></i>
+                    </a>
+                </div>
+            </nav>
+
+
+        </div>
+    </header>
+    <div class="container-fluid">
+        <main class="tm-main">
+            <!-- Search form -->
+
+
+
+            <div class="row tm-row tm-mb-40">
+                <div class="col-12">
+                    <div class="mb-4">
+                        <h2 class="pt-2 tm-mb-40 tm-color-primary tm-post-title">JSON Binding with Model class using .NET Core and C#</h2>
+                        <hr class="tm-hr-primary tm-mb-55">
+                        <img src="img/binding.png" alt="Image" class="img-fluid">
+                        <div id="LoadBlog">
+                            <p></p>
+                          
+                            <p style="margin:0">In .NET core we can easly bind a json file with a model class using ConfigurationBinder Class. The following example will give an idea.</p>
+                            <ul>
+                                <li>
+                                    <p > Create a new .NET core Console project in Visual Studio. Let the project name &nbsp;&quot;binding&quot;</p>
+                                </li>
+                                <li>
+                                    <p style="margin:0">Add a new model class named Model.cs under project binding and Add two variable in Model class</pstyle="margin:0">
+                                    <p style="margin:0">&nbsp; &nbsp; &nbsp; &nbsp; public string strVar { get; set; }</p>
+                                    <p >&nbsp; &nbsp; &nbsp; &nbsp; public int intVar { get; set; }</p>
+                                </li>
+                                <li>
+                                    <p style="margin:0">Add a new json file named &quot;mapping.json&quot;. This file entires will be mapped with model class</p>
+                                    <p style="margin:0"> {</p>
+                                    <p style="margin:0">&nbsp; &quot;Model&quot;: {</p>
+                                    <p style="margin:0">&nbsp; &nbsp; &quot;strVar&quot;: &quot;Hello&quot;,</p>
+                                    <p style="margin:0">&nbsp; &nbsp; &quot;intVar&quot;: 999</p>
+                                    <p style="margin:0">&nbsp; }</p>
+                                    <p style="margin:0">}</p>
+                                    <p style="margin:0"></p>
+                                    <p style="margin:0">Right click the json file select properties and ensure its copied to output directory.</p>
+                                    <p style="margin:0">Please note that the variable name in json file should mach with model class entries.</p>
+                                    <p style="margin:0">&nbsp; &quot;strVar&quot;: &quot;Hello&quot; --&gt; &nbsp;public string strVar { get; set; }&nbsp;</p>
+                                    <p >&nbsp; &quot;intVar&quot;: 999 --&gt; &nbsp; public int intVar { get; set; }</p>
+                                   </li>
+                                <li>
+                                    <p style="margin:0">Install the following package from nugets&nbsp;</p>
+                                    <p style="margin:0"><span style="white-space:pre;">&nbsp; &nbsp;&nbsp;</span> Microsoft.Extensions.Configuration.Binder</p>
+                                    <p ><span style="white-space:pre;">&nbsp; &nbsp;&nbsp;</span> Microsoft.Extensions.Configuration.Json</p>
+                                </li>
+                                <li>
+                                    <p style="margin:0">Add the following code in program.cs</p>
+                                    <p style="margin:0">&nbsp; &nbsp; &nbsp; &nbsp; var builder = new ConfigurationBuilder()...</p>
+                                    <p style="margin:0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .SetBasePath(Directory.GetCurrentDirectory())</p>
+                                    <p style="margin:0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .AddJsonFile(&quot;Mapping.json&quot;, optional: false);</p>
+                                    <p style="margin:0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; IConfiguration config = builder.Build();</p>
+                                    <p style="margin:0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var modelClassVariable = config.GetSection(&quot;Model&quot;).Get&lt;Model&gt;();</p>
+                                    <p style="margin:0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Console.WriteLine($&quot;strVar = {modelClassVariable.strVar}&quot;);</p>
+                                    <p style="margin:0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Console.WriteLine($&quot;intVar = {modelClassVariable.intVar}&quot;);</p>
+                                    <p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Console.ReadLine();</p>
+                                 </li>
+                                <li>
+                                    <p style="margin:0">Add the necessary using&nbsp;</p>
+                                    <p style="margin:0"><span style="white-space:pre;">&nbsp; &nbsp;&nbsp;</span>using Microsoft.Extensions.Configuration;</p>
+                                    <p style="margin:0"><span style="white-space:pre;">&nbsp; &nbsp;&nbsp;</span>using System;</p>
+                                    <p ><span style="white-space:pre;">&nbsp; &nbsp;&nbsp;</span>using System.IO;</p>
+                                  </li>
+                                <li>
+                                    <p style="margin:0">Run the application and you can seethat strVar and intVar are mapped correctly with the json file.</p>
+                                    <p style="margin:0">&nbsp; &nbsp; &nbsp; Output</p>
+                                    <p style="margin:0"><span style="white-space:pre;">&nbsp; &nbsp;&nbsp;</span>strVar = Hello</p>
+                                    <p ><span style="white-space:pre;">&nbsp; &nbsp;&nbsp;</span>intVar = 999</p>
+                                </li>
+                            </ul>
+                            <table border="1">
+                                <tr>
+                                    <th>
+                                        <p>  Program.cs</p>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                      
+
+                                        <p  style="margin:0">using System;</pstyle="margin:0">
+                                        <p style="margin:0">using System.IO;</p>
+                                        <p style="margin:0">using Microsoft.Extensions.Configuration;</p>
+                    
+                                        <p style="margin:0">namespace binding</p>
+                                        <p style="margin:0">{</p>
+                                        <p style="margin:0">&nbsp; &nbsp; internal class Program</p>
+                                        <p style="margin:0">&nbsp; &nbsp; {</p>
+                                        <p style="margin:0">&nbsp; &nbsp; &nbsp; &nbsp; static void Main(string[] args)</p>
+                                        <p style="margin:0">&nbsp; &nbsp; &nbsp; &nbsp; {</p>
+                                        <p style="margin:0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var builder = new ConfigurationBuilder()</p>
+                                        <p style="margin:0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .SetBasePath(Directory.GetCurrentDirectory())</p>
+                                        <p style="margin:0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .AddJsonFile(&quot;Mapping.json&quot;, optional: false);</p>
+                              
+                                        <p style="margin:0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; IConfiguration config = builder.Build();</p>
+                                      
+                                        <p style="margin:0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var modelClassVariable = config.GetSection(&quot;Model&quot;).Get&lt;Model&gt;();//Selecting Model</p>
+                                        <p style="margin:0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Console.WriteLine($&quot;strVar = {modelClassVariable.strVar}&quot;);</p>
+                                        <p style="margin:0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Console.WriteLine($&quot;intVar = {modelClassVariable.intVar}&quot;);</p>
+                                        <p style="margin:0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Console.ReadLine();</p>
+                                        <p style="margin:0">&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+                                        <p style="margin:0">&nbsp; &nbsp; }</p>
+                                        <p style="margin:0">}</p>
+                                       
+
+                                      
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <p>  Model.cs</p>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                      
+
+                                        <p style="margin:0">using System;</p>
+                                        <p style="margin:0">using System.Collections.Generic;</p>
+                                        <p style="margin:0">using System.Text;</p>
+
+                                        <p style="margin:0">namespace binding</p>
+                                        <p style="margin:0">{</p>
+                                        <p style="margin:0">&nbsp; &nbsp; public class Model</p>
+                                        <p style="margin:0">&nbsp; &nbsp; {</p>
+                                        <p style="margin:0">&nbsp; &nbsp; &nbsp; &nbsp; public string strVar { get; set; }</p>
+                                        <p style="margin:0">&nbsp; &nbsp; &nbsp; &nbsp; public int intVar { get; set; }</p>
+                                        <p style="margin:0">&nbsp; &nbsp; }</p>
+                                        <p style="margin:0">}</p>
+                                     
+
+
+                                      
+                                    </td>
+                                </tr>
+                                <tr >
+                                    <th>
+                                        <p> Mapping.json</p>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                       
+
+                                        <p style="margin:0">{</p>
+                                        <p style="margin:0">&nbsp; &quot;Model&quot;: {</p>
+                                        <p style="margin:0">&nbsp; &nbsp; &quot;strVar&quot;: &quot;Hello&quot;,</p>
+                                        <p style="margin:0">&nbsp; &nbsp; &quot;intVar&quot;: 999</p>
+                                        <p style="margin:0">&nbsp; }</p>
+                                        <p style="margin:0">}</p>
+                                      
+
+                                     
+                                    </td>
+                                </tr>
+
+                            </table>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/templatemo-script.js"></script>
+    <script>
+
+       
+    </script>
+</body>
+</html>
